@@ -27,14 +27,18 @@ This is where araneae shines, preforming its own static analysis, it can distill
 Active analysis can be preformed to elicit interesting responses or automatically find and fuzz parameters for finding myriad vulnerabilities such as xss, sqli, ssrf, and more.
 
 
+![image](https://github.com/user-attachments/assets/28ef17bc-05e2-4d30-8640-1883ab527593)
+###### *Solving the port swigger unkeyed header web cache poisoning lab using araneae* 
+
+
 
 Further, with araneae's dynamic ![scanner scripts](https://github.com/malectricasoftware/araneae/blob/main/scripts/README.md), ![flagger rules](https://github.com/malectricasoftware/araneae/blob/main/rules/README.md), and ![analysis modules](https://github.com/malectricasoftware/araneae/blob/main/analysis/README.md) users can harness the power of araneae in a few lines of code.
 
+
+
 The full help page for the tool is below:
 
-
-![image](https://github.com/user-attachments/assets/28ef17bc-05e2-4d30-8640-1883ab527593)
-###### *Solving the port swigger unkeyed header web cache poisoning lab using araneae* 
+![image](https://github.com/user-attachments/assets/1b01e59e-7e2c-41c7-9fc0-58362ac6ffe2)
 
 
 

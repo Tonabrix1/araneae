@@ -1,12 +1,15 @@
 # araneae (arr-ah-nay)
 
-A multipurpose web-crawler which preforms lightning fast data collection and analysis for application security testing.
+A modular web-crawler and fuzzing framework which preforms data collection and analysis for application security testing.
 
 araneae can be used to rapidly enumerate a web based attack surface to make finding initial footholds and points of interest simple.
 
-It can also preform a methodical and in-depth analysis in order to find various types of vulnerablities, misconfigurations, and bugs in every inch of an application.
+It can be used to test for both common and niche vulnerabilities once the tester has a good map of the environment.
+
+And it can be used to preform a methodical and in-depth analysis in order to find various types of vulnerablities, misconfigurations, and bugs in every inch of an application.
 
 ![image](https://github.com/user-attachments/assets/ee840505-9aed-471d-ba7e-bf4f85a458ed)
+
 
 
 # What can araneae do?
@@ -19,10 +22,14 @@ This is where araneae shines, preforming its own static analysis, it can distill
 
 ![image](https://github.com/user-attachments/assets/85a87051-c585-4e38-911a-edfb869682dd)
 
+
+
 Active analysis can be preformed to elicit interesting responses or automatically find and fuzz parameters for finding myriad vulnerabilities such as xss, sqli, ssrf, and more.
 ###### *Planned: araneae will dynamically choose scans to preform in steps after collecting data and preforming introspection, such as attacking with xss payloads generated based on content security policies*
 
 ![image](https://github.com/user-attachments/assets/2170e838-a620-476b-b68e-60472368a97c)
+###### *Solving the port swigger unkeyed header web cache poisoning lab using araneae* 
+
 
 
 Further, with araneae's dynamic ![scanner scripts](https://github.com/malectricasoftware/araneae/blob/main/scripts/README.md), ![flagger rules](https://github.com/malectricasoftware/araneae/blob/main/rules/README.md), and ![analysis modules](https://github.com/malectricasoftware/araneae/blob/main/analysis/README.md) users can harness the power of araneae in a few lines of code.
@@ -30,4 +37,45 @@ Further, with araneae's dynamic ![scanner scripts](https://github.com/malectrica
 The full help page for the tool is below:
 
 ![image](https://github.com/user-attachments/assets/86ff01b8-845f-4daf-a200-a25d1cd446a5)
+
+
+
+# What **WILL** araneae be capable of?
+
+The broader idea behind this tool is to build a modular web scanner framework which can iteratively preform scans to collect data, then intelligently leverage data that has been collected to dig into the most interesting parts of any application.
+
+This is achieved by creating sequences of steps for araneae to preform known as "**recipes**", these recipes are constituent of "**ingredients**" which are steps that araneae will preform then yield some data for the next step to work on.
+
+Some examples of hypothetical recipes may consist of the following steps:
+    
+    - crawl n urls from a website ->
+        find admin login pages and search the source and headers for leaked versioning info ->
+            feed fingerprint data into searchsploit and return exploits that may be likely
+    
+    - crawl n urls from a website ->
+        mine for input paramaters in forms and query strings ->
+            generate dynamic xss payloads for each based on the csp or lackthereof ->
+                send payloads ->
+                    scan responses for XSS
+    
+    - crawl n urls from a website ->
+        mine for input paramaters in forms and query strings ->
+            analyze response timings to find endpoints that take the most time to respond ->
+                preform short controlled last byte/single packet attacks to check for how response timings scale ->
+                    analyze response timings to discover where DOS might possible
+
+    - crawl n urls from a website ->
+        scrape regex from input fields ->
+            analyze for evil regex ->
+                feed dynamically constructed evil regex payloads into inputs ->
+                    analyze response timings to confirm exploit
+
+
+As you can imagine, many of these recipes applied in conjunction lead to powerfully complex behaviors.
+
+And the simplicity of this approach even lends itself well even to application with reinforcement learning algorithms such as a DQNN, which can actively learn from data we collect and integrate it to build better recipes.
+
+
+
+Strides towards achieving this have been made in araneae, by making almost all capabilities of the tool modular, making the implementation of recipes (hopefully) simple once the tool has matured enough to begin moving that direction.
 

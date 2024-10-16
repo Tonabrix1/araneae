@@ -25,7 +25,7 @@ Active analysis can be preformed to elicit interesting responses or automaticall
 ![image](https://github.com/user-attachments/assets/2170e838-a620-476b-b68e-60472368a97c)
 
 
-Further, with araneae's dynamic ![scanner rules](https://github.com/Tonabrix1/araneae/blob/main/rules/README.md) and ![scanner scripts](https://github.com/Tonabrix1/araneae/blob/main/scripts/README.md) users can harness the power of araneae in a few lines of code.
+Further, with araneae's dynamic ![scanner scripts](https://github.com/malectricasoftware/araneae/blob/main/scripts/README.md), ![flagger rules](https://github.com/malectricasoftware/araneae/blob/main/rules/README.md), and ![analysis modules](https://github.com/malectricasoftware/araneae/blob/main/analysis/README.md) users can harness the power of araneae in a few lines of code.
 
 The full help page for the tool is below:
 
